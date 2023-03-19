@@ -7,6 +7,7 @@
     <title><%=docTitle%></title>
     <%-include('../layouts/bootstrap-header.ejs')%>
     <%-include('../layouts/j-query.ejs')%>
+    <%-include('../layouts/font-awesome.ejs')%>
     <link rel="stylesheet" href="/css/login.css" type="text/css">
 </head>
 <body>
@@ -24,11 +25,18 @@
                       <label for="exampleInputEmail1">Email address</label>
                       <input type="email" class="form-control  mt-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="userEmail">
                       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              
+                      <%if(errorMessage){%>
+                        <p class="text-danger"><%=errorMessage%></p>
+                      <%}%>
+                      <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="form-group mt-2">
                       <label for="exampleInputPassword1">Password</label>
                       <input type="password" class="form-control mt-3" id="exampleInputPassword1" placeholder="Password" name="userPassword">
+                      <%if(_errorMessage){%>
+                        <p class="text-danger"><%=_errorMessage%></p>
+                      <%}%>
+                      <i class="fa-solid fa-lock"></i>
                     </div>
                     <div class="form-check mt-2">
                       <input type="checkbox" class="form-check-input mt-3" id="exampleCheck1">
