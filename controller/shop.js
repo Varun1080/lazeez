@@ -1,6 +1,6 @@
 // ***********global modules
 const mongoose = require('mongoose');
-const stripe=require("stripe")(process.env.STRIPE_KEY);
+const stripe=require("stripe")("sk_test_51MkLxDSGagux73Aj8NNwn3nX0pXqin1cZAlSJaoP2Hr73dNG2QpVrXcFCDcdvAt17wGOLYLvsN1Mwv7nhWSRR4DJ007RTDkJIH");
 
 // ************local modules
 const FoodProduct = require('../models/foodProduct');
