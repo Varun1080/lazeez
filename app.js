@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const helmet = require('helmet');
-const morgan = require('morgan');
 const compression = require('compression');
 const flash = require('connect-flash');
 
@@ -20,10 +19,6 @@ const adminRoute = require('./routes/admin');
 const authRoute = require('./routes/auth');
 const User = require('./models/user');
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, 'access.log'),
-  { flags: 'a' }
-);
 
 // **********port number
 const port = process.env.PORT || 3000;
@@ -70,9 +65,6 @@ app.use(compression());
 
 // *****************flash middleware
 app.use(flash());
-
-// ****************morgan middleware
-app.use(morgan('combined',{stream:accessLogStream}));
 
 // **************middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
