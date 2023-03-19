@@ -8,6 +8,7 @@ const getAddRecipe = (req, res, next) => {
   return res.status(200).render('admin/add-recipe', {
     docTitle: 'Add Recipe Page',
     isAuthenticated: req.session.isLoggedIn,
+    enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
   });
 };
 

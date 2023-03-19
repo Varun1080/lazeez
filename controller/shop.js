@@ -20,6 +20,7 @@ const getIndexPage = (req, res, next) => {
         prod: _result,
         prods: result,
         isAuthenticated: req.session.isLoggedIn,
+        enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
       });
     } catch (err) {
       if (err) return console.log(err.message);
@@ -42,6 +43,7 @@ const getProductDetail = (req, res, next) => {
         prods: data,
         releated: _data,
         isAuthenticated: req.session.isLoggedIn,
+        enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
       });
     } catch (err) {
       if (err) return console.log(err.message);
@@ -60,6 +62,7 @@ const getProductList = (req, res, next) => {
         docTitle: 'Product List Page',
         prod: data,
         isAuthenticated: req.session.isLoggedIn,
+        enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
         currentPage:page,
         hasNextPage:ITEM_PER_PAGE * page < cnt,
         hasPreviousPage:page>1,
@@ -84,6 +87,7 @@ const getSetting = (req, res, next) => {
         isAuthenticated: req.session.isLoggedIn,
         id: req.user._id,
         prods: data,
+        enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
       });
     } catch (err) {
       if (err) return console.log(err.message);
@@ -99,6 +103,7 @@ const getEdit = (req, res, next) => {
       return res.render('shop/edit-setting', {
         docTitle: 'Edit Setting Page',
         prods: data,
+        enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
       });
     } catch (err) {
       if (err) return console.log(err.message);
@@ -124,6 +129,7 @@ const postEdit = (req, res, next) => {
 const getReview = (req, res, next) => {
   return res.status(200).render('shop/review', {
     docTitle: 'Add Your Review Here',
+    enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
   });
 };
 
@@ -167,6 +173,7 @@ const getCart = (req, res, next) => {
         docTitle: 'Your Cart Items',
         prods: result.cart.items,
         isAuthenticated: req.session.isLoggedIn,
+        enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
       });
     } catch (err) {
       if (err) return console.log(err.message);
@@ -213,6 +220,7 @@ const getCheckOut = (req, res, next) => {
         docTitle: 'Checkout Page',
         prods: result.cart.items,
         isAuthenticated: req.session.isLoggedIn,
+        enable:(req.session.user==null || req.user.email!="vs343171@gmail.com")?false:true,
         totalSum: total,
         sessionId: session.id,
       });

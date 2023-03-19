@@ -25,12 +25,16 @@
           <p class="mt-2">Price : <%=prods[0].price%>&#8377;</p>
           <p class="mt-2">Food Description : <%=prods[0].foodDesc%></p>
           <p class="mt-2">Food Category : <%=prods[0].foodCategory%></p>
-          <form action="/add-to-cart" method="POST" class="mt-4">
-            <input type="hidden" name="productId" value="<%=prods[0]._id%>" />
-            <button class="btn btn-success w-100">
-              <i class="fa-solid fa-cart-shopping"></i> &nbsp;Add to cart
-            </button>
-          </form>
+          <%if(isAuthenticated){%>
+            <form action="/add-to-cart" method="POST" class="mt-4">
+              <input type="hidden" name="productId" value="<%=prods[0]._id%>" />
+              <button class="btn btn-success w-100">
+                <i class="fa-solid fa-cart-shopping"></i> &nbsp;Add to cart
+              </button>
+            </form>
+          <%}else{%>
+            <a href="/sign-up" class="btn btn-danger">Login To add to cart</a>
+          <%}%>
         </div>
       </div>
 

@@ -1,0 +1,8 @@
+{
+    "env":{
+        "MONGO_USER":"drvictor34561",
+        "MONGO_PASSWORD":"root",
+        "MONGO_DEFAULT_DATABASE":"lazeez",
+        "STRIPE_KEY":"sk_test_51MkLxDSGagux73Aj8NNwn3nX0pXqin1cZAlSJaoP2Hr73dNG2QpVrXcFCDcdvAt17wGOLYLvsN1Mwv7nhWSRR4DJ007RTDkJIH"
+    }
+}
