@@ -29,7 +29,7 @@ const accessLogStream = fs.createWriteStream(
 const port = process.env.PORT || 3000;
 
 // ************mongoose setting
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.aepfp1x.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
+const uri = `mongodb+srv://drvictor34561:root@cluster0.aepfp1x.mongodb.net/lazeez`;
 
 // **********session part -1
 const store = new MongoDBStore({
