@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="/images/logo-food.png" alt="logo/image" height="36" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Home</a>
+        </li>
+       <%if(isAuthenticated){%>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin/add-recipe">Add Recipe</a>
+        </li>
+        <%}%>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/product-list">Food-List</a>
+        </li>
+        <%if(isAuthenticated){%>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/setting">Setting</a>
+          </li>
+        <%}%>
+        <%if(isAuthenticated){%>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/cart">Cart-Item</a>
+          </li>
+        <%}%>
+        <%if(isAuthenticated){%>
+          <form action="/logout" method="POST">
+            <button class="btn btn-danger">logout</button>
+          </form>
+        <%}else{%>
+          <li class="nav-item">
+            <a class="nav-link btn btn-success" aria-current="page" href="/sign-up">SignUp/Login</a>
+          </li>
+        <%}%>
+
+      </ul>
+    </div>
+  </div>
+</nav>

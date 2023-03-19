@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=docTitle%></title>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <%-include('../layouts/font-awesome.ejs')%>
+    <link rel="stylesheet" href="/css/checkout.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+</head>
+<body>
+    <%-include('../layouts/navbar.ejs')%>
+    <main class="bg-dark">
+        <%if(prods.length>0){%>
+            <h6 class="text-white p-1 main-head">Your Checkout Page</h6>
+            <div class="heading-order">
+                <h6 class="text-white p-1"><%=prods.length%> items in your bag</h6>
+                <h6 id="status" class="text-white"></h6>
+            </div>
+            <div class="cart p-1 mt-2">
+               <%for(let product of prods){%>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="<%=product.foodId.foodUrl%>" alt="Card image cap">
+                    <div class="card-body p-4">
+                      <h5 class="card-title"><%=product.foodId.name%></h5>
+                      <p class="card-text">Price <%=product.foodId.price%>&#8377;</p>
+                      <p class="card-text">Availablity : True</p>
+                      <p class="card-text">Quantity <%=product.quantity%></p>
+                    </div>
+                  </div>
+               <%}%>
+            </div>
+            <div class="text-center mt-2">
+                <button class="btn btn-success mb-2" id="pay">Pay <%=totalSum%>&#8377;</button>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                    const stripe=Stripe('pk_test_51MkLxDSGagux73AjjskpGK7hYxRTy7oEqyHjITBQNKUPcBzEtKx6TXZwgcquaRACs7bFiEFWA0brPgDMCGvn4iZ600QBYNYjul');
+                    const orderBtn=document.getElementById("pay");
+                    orderBtn.addEventListener('click',function(){
+                        stripe.redirectToCheckout({
+                            sessionId:'<%=sessionId%>'
+                        })
+                    })
+                </script>
+            </div>
+        <%}%>
+    </main>
+    <%-include('../layouts/footer.ejs')%>
+</body>
+<script src="/js/location.js"></script>
+<%-include('../layouts/bootstrap-footer.ejs')%>
+</html>

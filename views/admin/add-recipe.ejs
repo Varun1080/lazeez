@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=docTitle%></title>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <%-include('../layouts/font-awesome.ejs')%>
+    <link rel="stylesheet" href="/css/add-recipe.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+</head>
+<body>
+    <%-include('../layouts/navbar.ejs')%>
+    <main class="p-2">
+        <h3 class="p-1 text-white add-head text-center">***Add Food Item***</h3>
+        <form action="/admin/add-recipe" method="POST" class="p-3 main-form">
+            <div class="form-group">
+                <label>Enter Recipe Name</label>
+                <input type="text" class="form-control mt-1" name="foodName"  placeholder="Enter Name">
+            </div>
+            <div class="form-group mt-2">
+                <label>Enter Recipe Price</label>
+                <input type="number" class="form-control mt-1" name="foodPrice"  placeholder="Enter Price">
+            </div>
+            <div class="form-group mt-2">
+                <label>Enter Food Url</label>
+                <input type="url" class="form-control mt-1" name="foodUrl"  placeholder="Enter Price">
+            </div>
+            <div class="form-group mt-2">
+                <label>Enter Recipe Description</label>
+                <textarea class="form-control mt-1"  rows="3" name="foodDesc"></textarea>
+            </div>
+            <div class="form-group mt-2">
+                <label>Select Food Season</label>
+                <select class="form-control mt-1" name="foodSeason">
+                  <option disabled selected>Select Season</option>
+                  <option value="Summer">Summer</option>
+                  <option value="Winter">Winter</option>
+                  <option value="all">all</option>
+                </select>
+            </div>
+            <div class="form-group mt-2">
+                <label>Select Food Category</label>
+                <select class="form-control mt-1" name="foodCategory">
+                  <option disabled selected>Select Category</option>
+                  <option value="Indian">Indian</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="South Indian">South Indian</option>
+                  <option value="Fast Food">Fast Food</option>
+                  <option value="beverage">beverage</option>
+                  <option value="american">american</option>
+                  <option value="other">other</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-2">
+                <label>Select Sub-Category</label>
+                <select class="form-control mt-1" name="foodSubCategory">
+                  <option disabled selected>Select Sub-Category</option>
+                  <option value="Break-Fast">Break-Fast</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                  <option value="Desert">Desert</option>
+                  <option value="other">other</option>
+                </select>
+            </div>
+            <div class="form-group mt-2">
+                <button class="btn btn-success w-100">Add Food Item</button>
+            </div>
+        </form>
+    </main>
+</body>
+<%-include('../layouts/bootstrap-footer.ejs')%>
+<%-include('../layouts/footer.ejs')%>
+</html>

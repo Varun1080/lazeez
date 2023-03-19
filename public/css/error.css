@@ -1,0 +1,7 @@
+main{
+    min-height: 100vh;
+}
+main img{
+    width: 100%;
+    height: 100vh;
+}

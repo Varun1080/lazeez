@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=docTitle%></title>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <%-include('../layouts/font-awesome.ejs')%>
+    <link rel="stylesheet" href="/css/cart.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+</head>
+<body>
+    <%-include('../layouts/navbar.ejs')%>
+    <main class="bg-dark">
+        <%if(prods.length>0){%>
+            <h5 class="text-white p-1 main-head">Your Cart Items</h5>
+            <div class="heading-order">
+                <h5 class="text-white p-1"><%=prods.length%> items added to the cart</h5>
+            </div>
+            <div class="cart p-1 mt-2">
+               <%for(let product of prods){%>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="<%=product.foodId.foodUrl%>" alt="Card image cap">
+                    <div class="card-body p-4">
+                      <h5 class="card-title"><%=product.foodId.name%></h5>
+                      <p class="card-text">Price <%=product.foodId.price%>&#8377;</p>
+                      <p class="card-text">Quantity <%=product.quantity%></p>
+                      <form action="/delete-cart-item" method="POST">
+                        <input type="hidden" name="productId" value="<%=product._id%>">
+                        <button class="w-100 btn btn-dark">Remove From Cart</button>
+                      </form>
+                    </div>
+                  </div>
+               <%}%>
+               <div class="mb-2">n
+                <form action="/checkout" class="text-center" method="GET">
+                    <button class="btn btn-danger">order now</button>
+                </form>
+               </div>
+            </div>
+        <%}else{%>
+            <div class="else">
+                <h5 class="text-center text-white">You have not added any item to cart yet</h5>
+                <a href="/product-list" class="btn btn-danger mt-2">Shop Now</a>
+            </div>
+        <%}%>
+    </main>
+    <%-include('../layouts/footer.ejs')%>
+</body>
+<%-include('../layouts/bootstrap-footer.ejs')%>
+</html>

@@ -1,0 +1,15 @@
+main{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+.setting{
+    width: 90%;
+}
+.div{
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}

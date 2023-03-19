@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=docTitle%></title>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <link rel="stylesheet" href="/css/edit-setting.css" type="text/css">
+</head>
+<body>
+   <main>
+    <%for(let product of prods){%>
+        <h4 class="text-center p-1 mt-2">Edit Profile Page</h4>
+        <form action="/edit-profile" method="POST" class="p-3">
+            <div class="form-group m-1">
+                <label for="">Enter Name</label>
+                <input type="text" name="name" value="<%=product.name%>" class="form-control mt-1">
+            </div>
+            <div class="form-group mt-1">
+                <label for="">Enter Phone Number</label>
+                <input type="text" name="phone"  value="<%=product.phone%>" class="form-control mt-1">
+            </div>
+            <div class="form-group mt-1">
+                <label for="">Enter Age</label>
+                <input type="text" name="Age"  value="<%=product.Age%>" class="form-control mt-1">
+            </div>
+            <div class="form-group mt-1">
+                <label for="">Enter Address</label>
+                <textarea name="address"  cols="30" rows="10" class="form-control mt-1">
+                    <%=product.address%>
+                </textarea>
+            </div>
+            <div class="form-group mt-1">
+                <label for="">Select Gender</label>
+                <select class="form-control mt-1" name="gender">
+                    <option disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+            </div>
+            <div class="form-group mt-1">
+                <label for="">Enter Email</label>
+                <input type="email" name="Email"  value="<%=product.Email%>" class="form-control mt-1">
+            </div>
+            <div class="form-group mt-1">
+                <label for="">Enter Name</label>
+                <input type="date" name="DateOfBirth"  value="<%=product.DateOfBirth%>" class="form-control mt-1">
+            </div>
+            <div class="form-group mt-2">
+                <button class="btn btn-danger w-100">Edit Profile</button>
+            </div>
+        </form>
+    <%}%>
+   </main>
+</body>
+</html>

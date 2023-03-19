@@ -1,0 +1,13 @@
+main{
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('/images/food-doodle.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.add-head{
+    font-weight: bold;
+}
+form{
+    background-color: #ffffff;
+    max-width: 1150px;
+    margin: 0 auto;
+}

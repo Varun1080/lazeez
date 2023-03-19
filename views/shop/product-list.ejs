@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=docTitle%></title>
+    <%-include('../layouts/font-awesome.ejs')%>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <link rel="stylesheet" href="/css/product-list.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+</head>
+<body>
+    <%-include('../layouts/navbar.ejs')%>
+    <main class="bg-dark">
+        
+        <section class="product-list p-2">
+            <h4 class="text-white text-center">All Products</h4>
+            <div class="product-list-child p-2">
+              <%for(let product of prod){%>
+                <div class="card" style="width: 13rem;">
+                  <img class="card-img-top" src="<%=product.foodUrl%>" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><%=product.name%></h5>
+                    <p class="card-text">Price <%=product.price%>&#8377;</p>
+                    <a href="/product-detail/<%=product._id%>" class="btn btn-success w-100">Details</a>
+                  </div>
+                </div>
+              <%}%>
+            </div>
+          </section>
+
+          <section class="d-flex align-items-center justify-content-center">
+            <%-include('../layouts/pagination.ejs')%>
+          </section>
+
+    </main>
+    <%-include('../layouts/footer.ejs')%>
+</body>
+<%-include('../layouts/bootstrap-footer.ejs')%>
+</html>

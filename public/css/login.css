@@ -1,0 +1,44 @@
+main{
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('/images/food-doodle.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+h2{
+    font-family: sans-serif!important;
+}
+form{
+    background-color: #ffffff;
+}
+.login{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.login-left img{
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width:1003px)
+{
+    .shadow{
+        box-shadow: none!important;
+    }
+    .login{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+}
+@media screen and (max-width:480px){
+    .shadow{
+        box-shadow: none!important;
+    }
+    .login{
+        grid-template-columns: repeat(1,1fr);
+    }
+}

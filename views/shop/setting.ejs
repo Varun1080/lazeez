@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=docTitle%></title>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <%-include('../layouts/font-awesome.ejs')%>
+    <link rel="stylesheet" href="/css/setting.css" type="text/css">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+</head>
+<body>
+    <%-include('../layouts/navbar.ejs')%>
+
+    <main class="bg-dark p-2">
+        <h4 class="text-white text-center">General Setting <i class="fa-solid fa-wrench"></i></h4>
+        <%for(let product of prods){%>
+            <div class="setting mt-1">
+
+                <div class="div p-2">
+                    <h5>Name</h5>
+                    <p><%if(product.name==""){%>undefined<%}else{%><%=product.name%><%}%></p>
+                </div>
+    
+                <div class="div p-2">
+                    <h5>Phone Number</h5>
+                    <p><%if(product.phone==""){%>undefined<%}else{%><%=product.phone%><%}%></p>
+                </div>
+    
+                <div class="div p-2">
+                    <h5>Age</h5>
+                    <p><%if(product.Age==""){%>undefined<%}else{%><%=product.Age%><%}%></p>
+                </div>
+    
+                <div class="div p-2">
+                    <h5>Address</h5>
+                    <p><%if(product.address==""){%>undefined<%}else{%><%=product.address%><%}%></p>
+                </div>
+    
+                <div class="div p-2">
+                    <h5>Gender</h5>
+                    <p><%if(product.gender==""){%>undefined<%}else{%><%=product.gender%><%}%></p>
+                </div>
+    
+                <div class="div p-2">
+                    <h5>Email</h5>
+                    <p><%if(product.Email==""){%>undefined<%}else{%><%=product.Email%><%}%></p>
+                </div>
+    
+                <div class="div p-2">
+                    <h5>Date Of Birth</h5>
+                    <p><%if(product.DateOfBirth==""){%>undefined<%}else{%><%=product.DateOfBirth%><%}%></p>
+                </div>
+        <%}%>
+        <a href="/edit-profile/<%=id%>" class="btn btn-danger mt-2">Edit Your Profile</a>
+        </div>
+    </main>
+
+   <%-include('../layouts/footer.ejs')%>
+</body>
+<%-include('../layouts/bootstrap-footer.ejs')%>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%docTitle%></title>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <%-include('../layouts/font-awesome.ejs')%>
+    <link rel="stylesheet" href="/css/review.css" type="text/css">
+</head>
+<body>
+    <main>
+        <h3 class="text-white">Add Your Review</h3>
+        <form action="/add-review" method="POST">
+            <div class="form-group">
+                <textarea  name="userReview"  cols="30" rows="10" class="form-control" maxlength="100" placeholder="Maximum Character allowed are only 100"></textarea>
+            </div>
+            <div class="form-group mt-2">
+                <button class="form-control w-100 btn btn-success">Add Review</button>
+            </div>
+        </form>
+    </main>
+</body>
+<%-include('../layouts/bootstrap-footer.ejs')%>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=docTitle%></title>
+    <%-include('../layouts/bootstrap-header.ejs')%>
+    <%-include('../layouts/font-awesome.ejs')%>
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="stylesheet" href="/css/home.css" type="text/css">
+</head>
+<body>
+    <%-include('../layouts/navbar.ejs')%>
+
+    <main class="bg-dark mb-0">
+        <section class="main-background">
+            <h2 class="text-white">Lazeez</h2>
+            <p class="text-white">Where every flavor tells a story</p>
+            <a href="/product-list" class="btn btn-success">Order Now</a>
+        </section>
+
+        <section class="product-list p-2">
+          <h4 class="text-white text-center">Featured Products</h4>
+          <div class="product-list-child p-2">
+            <%for(let product of prod){%>
+              <div class="card" style="width: 13rem;">
+                <img class="card-img-top" src="<%=product.foodUrl%>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><%=product.name%></h5>
+                  <p class="card-text">Price <%=product.price%>&#8377;</p>
+                  <a href="/product-detail/<%=product._id%>" class="btn btn-success w-100">Details</a>
+                </div>
+              </div>
+            <%}%>
+          </div>
+          <div class="text-center mt-2">
+            <a href="/product-list" class="btn btn-success" style="border-radius: 50%;"><i class="fa-solid fa-cart-plus"></i></a>
+          </div>
+        </section>
+
+        <h5 class="text-white text-center p-2">Our Customers Review</h5>
+        <section class="review-background p-3">
+           <%for(let product of prods){%>
+            <div class="card text-center bg-dark text-white" style="width: 40vw;">
+                <div class="card-header" style="border-bottom: 1px dashed #ffffff;">
+                  User Review
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Review By :- <%=product.userId.email%></h5>
+                  <p class="card-text"><%=product.desc%></p>
+                </div>
+                <div class="card-footer">
+                  Dated <%=product.date%>
+                </div>
+              </div>
+           <%}%>
+        </section>
+        <%if(isAuthenticated){%>
+          <p class="text-center text-white bg-dark mb-0 p-1"><a href="/add-review" class="text-white text-decoration-none">Add Your Review</a></p>
+        <%}%>
+    </main>
+    <%-include('../layouts/footer.ejs')%>
+</body>
+<%-include('../layouts/bootstrap-footer.ejs')%>
+</html>
